@@ -82,6 +82,16 @@ const select = {
     }
   }
 
+  getElements(){
+    const thisProduct = this;
+  
+    thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
+    thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
+    thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
+    thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
+    thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+  }
+
   initAccordion(){
     const thisApp = this;
 
@@ -93,7 +103,7 @@ const select = {
         /* prevent default action for event */
         event.preventDefault();
         /* find active product (product that has active class) */
-        const activeProduct = document.querySelectorAll(classNames.menuProduct.wrapperActive);
+        const activeProduct = document.querySelector(classNames.menuProduct.wrapperActive);
               /* if there is active product and it's not thisProduct.element, remove class active from it */
               if (activeProduct != thisProduct.element){
                 activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
@@ -102,7 +112,6 @@ const select = {
   }
 
   
-
   const app = {
 
     initMenu: function(){
@@ -130,6 +139,7 @@ const select = {
 
       thisApp.initData();
       thisApp.initMenu();
+      thisApp.getElements();
       thisApp.initAccordion();
     },
   };
