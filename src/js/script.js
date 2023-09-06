@@ -60,8 +60,13 @@ const select = {
       thisProduct.data = data;
 
       thisProduct.renderInMenu();
+      thisProduct.getElements();
+      thisProduct.initAccordion();
+      thisProduct.initOrderForm();
+      thisProduct.processOrder();
 
       console.log('new Product:', thisProduct);
+
     }
 
     renderInMenu(){
@@ -103,7 +108,7 @@ const select = {
         /* find active product (product that has active class) */
         const activeProduct = document.querySelector(classNames.menuProduct.wrapperActive);
               /* if there is active product and it's not thisProduct.element, remove class active from it */
-              if (activeProduct != thisProduct.element){
+              if ( activeProduct && activeProduct != thisProduct.element){
                 activeProduct.classList.remove(classNames.menuProduct.wrapperActive);
               }
               thisProduct.element.classList.toggle(classNames.menuProduct.wrapperActive);
@@ -156,38 +161,37 @@ const select = {
         const option = param.options[optionId];
         console.log(optionId, option);
      
-        // for every option in this category
-        for(let optionId in param.options) {
-          // determine option value, e.g. optionId = 'olives', option = { label: 'Olives', price: 2, default: true }
-          const option = param.options[optionId];
-          console.log(optionId, option);
-
           // check if there is param with a name of paramId in formData and if it includes optionId
           const optSelected = formData[paramId] && formData[paramId].includes(optionId)
           if(optSelected){
             // check if the option is not default
-            if(formData  =! param.options[optionId.default]) {
+            if(!option.default) {
               // add option price to price variable
-            }  thisProduct.priceElem += formData.price
+              price += option.price
+            }  
           } else {
             // check if the option is default
-            if(formData  == param.options[optionId.default]) {
+            if(option.default) {
               // reduce price variable
-            } thisProduct.priceElem -= formData.price 
+              price -= option.price 
+            } 
           }
 
           // Img
-          const optionImage = thisProduct.imageWrapper.querySelector(select.menuProduct.imageWrapper);
+          const optionImage = thisProduct.imageWrapper.querySelector('.'+paramId+'-'+optionId);
           if(optionImage) {
               if(optSelected) {
-                optSelected.element.classList.toggle(select.menuProduct.imageWrapperActive);
-              }
+                optionImage.classList.add('active');
+              }else {
+              optionImage.classList.remove('active');
+            }
           } 
-    
+        }
+      }
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
-}  
+  }  
   
   const app = {
 
@@ -216,10 +220,7 @@ const select = {
 
       thisApp.initData();
       thisApp.initMenu();
-      thisApp.getElements();
-      thisApp.initAccordion();
-      thisApp.initOrderForm();
-      thisApp.processOrder();
+
     },
   };
 
