@@ -230,10 +230,13 @@ const select = {
     setValue(value){
       const thisWidget = this;
       const newValue = parseInt(value);
-    
+
+     
       if (!isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
       } thisWidget.announce();
+
+  
      
       //thisWidget.value = new.Value;
       thisWidget.input.value = thisWidget.value;
@@ -245,7 +248,11 @@ const select = {
       const thisWidget = this;
     
       thisWidget.input.addEventListener('change', function () {
+        //if (thisWidget.input.value){
         thisWidget.setValue(thisWidget.input.value);
+        //} else  if (!thisWidget.input.value) {
+        //  thisWidget.setValue( thisWidget.input.value = settings.amountWidget.defaultValue);
+        //}
       });
     
       thisWidget.linkDecrease.addEventListener('click', function (event) {
