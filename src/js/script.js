@@ -189,6 +189,9 @@ const select = {
             } 
           }
         }
+        // multiply price by amount
+        price *= thisProduct.amountWidget.value;
+
         // update calculated price in the HTML
         thisProduct.priceElem.innerHTML = price;
     }
@@ -197,8 +200,11 @@ const select = {
       const thisProduct = this;
 
       thisProduct.amountWidget = new AmountWidget(thisProduct.amountWidgetElem);
-    }
 
+      thisProduct.amountWidgetElem.addEventListener('updated', function (event) {
+        thisProduct.processOrder();
+      });    
+    }
   }  
   
   class AmountWidget{
@@ -227,9 +233,11 @@ const select = {
     
       if (!isNaN(newValue) && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
-      }
+      } thisWidget.announce();
      
+      //thisWidget.value = new.Value;
       thisWidget.input.value = thisWidget.value;
+
       
     } 
 
@@ -250,6 +258,13 @@ const select = {
         thisWidget.setValue(thisWidget.value + 1);
       });
 
+    }
+
+    announce(){
+      const thisWidget = this;
+
+      const event = new Event ('updated');
+      thisWidget.element.dispatchEvent(event);
     }
  
 
