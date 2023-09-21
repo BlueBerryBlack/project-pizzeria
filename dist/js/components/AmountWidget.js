@@ -11,7 +11,7 @@ class AmountWidget extends BaseWidget {
     thisWidget.initActions();
 
     console.log('AmountWidget:', thisWidget);
-    console.log('constructor arguments:', element);
+    //console.log('constructor arguments:', element);
   }
 
   getElements(element) {
@@ -38,11 +38,12 @@ class AmountWidget extends BaseWidget {
     const thisWidget = this;
 
     thisWidget.dom.input.addEventListener('change', function () {
-      if (thisWidget.dom.input.value) {
+      /*if (thisWidget.dom.input.value) {
         thisWidget.setValue(thisWidget.dom.input.value);
       } else if (!thisWidget.dom.input.value) {
         thisWidget.setValue(thisWidget.dom.input.value = settings.amountWidget.defaultValue);
-      }
+      }*/
+      thisWidget.value = thisWidget.dom.input.value;
     });
 
     thisWidget.dom.linkDecrease.addEventListener('click', function (event) {
