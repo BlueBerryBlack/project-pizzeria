@@ -1,4 +1,4 @@
-/*import path from 'path';
+import path from 'path';
 import jsonServer from 'json-server';
 
 const server = jsonServer.create();
