@@ -6,10 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  
+  <link rel="stylesheet" href="vendor/bootstrap-grid.css">
+
   <link rel="stylesheet" href="vendor/range-slider.css">
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="vendor/flickyty.css">
+
 </head>
 <body>
 
@@ -65,7 +71,7 @@
   <div id="pages">
 
     <section id="home">
-      <div class="home-wrapper container"></div>
+      <div class="home-container container"></div>
     </section>
     <section id="order">
       <div id="product-list" class="product-list container"></div>
@@ -77,87 +83,118 @@
 
   <script id="template-home" type="text/x-handlebars-template">
     <div class="information-widget">
-      <div row>
+      <div class = "row">
         <div class="col-md-6">
-          <img>
-          <h3>ORDER ONLINE</h3>
+          <div class="card-home">
+            <img src="https://i.postimg.cc/xdn0V0WX/pizza-1.jpg">
+            <h3>ORDER ONLINE</h3>
+            <p>Delicious food delivered to your door</p>
+          </div>
         </div>
         <div class="col-md-6">
-          <img>
-          <h3>BOOK A TABLE</h3>
+          <div class="card-home">
+            <img src="https://i.postimg.cc/hjghsk8B/pizza-2.jpg">
+            <h3>BOOK A TABLE</h3>
+            <p>Delicious food delivered to your door</p>
+          </div>
         </div>
       </div>
-      <div>
+      <div class="opening">
         <h3>OPENING HOURS:</h3>
         <p>TUE-SUN,12PM-12AM</p>
       </div>
-    </div>
-    <div class = "slider-widget">
-      <div row>
-        <div class = "col-md-3">
-          <img>
+
+      <div class="main-carousel">
+        <div class="carousel-cell">
+          <div class="row">
+            <div class="col-md-8">
+              <h5>OPENING HOURS:</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+                Aliquam egestas viverra tortor, eu uliamcorper dui imperdiet<br>
+                nec. Nuno dolor at elit lobor tis sodales.
+              </p>
+              <p>Margaret Osborne</p>  
+            </div>
+            <div class="col-md-4">
+              <img src="https://i.postimg.cc/HLTChdNB/pizza-3.jpg">
+            </div>
+          </div>
         </div>
-        <div class = "col-md-6">
+        <div class="col-md-8">
           <h5>OPENING HOURS:</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
             Aliquam egestas viverra tortor, eu uliamcorper dui imperdiet<br>
             nec. Nuno dolor at elit lobor tis sodales.
           </p>
-          <p>Margaret Osborne</p>        
+          <p>Margaret Osborne</p>  
+        </div>
+        <div class="col-md-4">
+          <img src="https://i.postimg.cc/HLTChdNB/pizza-3.jpg">
+        </div>
+        <div class="col-md-8">
+          <h5>OPENING HOURS:</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+            Aliquam egestas viverra tortor, eu uliamcorper dui imperdiet<br>
+            nec. Nuno dolor at elit lobor tis sodales.
+          </p>
+          <p>Margaret Osborne</p>  
+        </div>
+        <div class="col-md-4">
+          <img src="https://i.postimg.cc/HLTChdNB/pizza-3.jpg">
         </div>
       </div>
-    </div>
-    <div class = "gallery-widget">
-        <div row>
+    
+
+        <div class = "gallery-widget">
+        <div class="row">
           <div class ="col-md-4">
-            <img>
+            <img src="https://i.postimg.cc/ZnvkdR9K/pizza-4.jpg">
             <ul class="pictograms">
               <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
               <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
             </ul>
           </div>
           <div class ="col-md-4">
-            <img>
+            <img src="https://i.postimg.cc/PrZJGf6j/pizza-5.jpg">
             <ul class="pictograms">
               <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
               <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
             </ul>
           </div>
           <div class ="col-md-4">
-            <img>
-            <ul class="pictograms">
-              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
-              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
-            </ul>
-          </div>
-        </div>
-        <div row>
-          <div class ="col-md-4">
-            <img>
-            <ul class="pictograms">
-              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
-              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
-            </ul>
-          </div>
-          <div class ="col-md-4">
-            <img>
-            <ul class="pictograms">
-              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
-              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
-            </ul>
-          </div>
-          <div class ="col-md-4">
-            <img>
+            <img src="https://i.postimg.cc/gJncgGw1/pizza-6.jpg">
             <ul class="pictograms">
               <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
               <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
             </ul>
           </div>
         </div>
+        <div class="row">
+          <div class ="col-md-4">
+            <img src="https://i.postimg.cc/9F3XB5cN/pizza-7.jpg">
+            <ul class="pictograms">
+              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
+              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
+            </ul>
+          </div>
+          <div class ="col-md-4">
+            <img src="https://i.postimg.cc/2SGzm1hP/pizza-8.jpg">
+            <ul class="pictograms">
+              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
+              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
+            </ul>
+          </div>
+          <div class ="col-md-4">
+            <img src="https://i.postimg.cc/TPPTPTch/pizza-9.jpg">
+            <ul class="pictograms">
+              <li><a href="#heart"><i class="fa-solid fa-heart"></i></a></li>
+              <li><a href="#share"><i class="fa-solid fa-share-nodes"></i></a></li>
+            </ul>
+          </div>
+        </div>
     </div>
-    <footer>
-      <p>View more on istagram
-      </p>
+    <footer class="footer">
+      <p>View more on istagram</p>
     </footer>
 
   </script>
@@ -339,5 +376,7 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.js"></script>
   <script src="js/app.js" type="module"></script>
+  <script src="vendor/flickyty.js"></script>
+
 </body>
 </html>

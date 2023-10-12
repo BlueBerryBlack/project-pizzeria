@@ -1,5 +1,5 @@
-import { templates,select} from "../settings";
-import {utils} from "../utils";
+import { templates,select} from "../settings.js";
+import utils from "../utils.js";
 
 class Home {
     constructor (){
@@ -7,6 +7,7 @@ class Home {
 
         thisHome.render();
         thisHome.getElements();
+        thisHome.initSlider();
     }
 
     render(){
@@ -27,7 +28,27 @@ class Home {
 
     getElements(){
 
+        const thisHome=this;
+
+        thisHome.dom={};
+        thisHome.dom.wrapper=thisHome.element;
+
+        thisHome.dom.slider = document.querySelector('.main-carousel');
+    }
+
+    initSlider(){
+
+        const thisHome =this;
+
+        new Flickity ( thisHome.dom.slider, {
+         
+          cellAlign: 'left',
+          contain: true
+        });
     }
 
 
+
 }
+
+export default Home;
